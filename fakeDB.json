@@ -1,0 +1,47 @@
+[
+   {
+      "name":"Ahmet",
+      "lastName":"Yılmaz",
+      "vergiNO":25553251151352
+   },
+   {
+      "name":"Burhan",
+      "lastName":"Kaya",
+      "vergiNO":35211615321351
+   },
+   {
+      "name":"Ahmet Cem",
+      "lastName":"Ersever",
+      "vergiNO":51516161551321
+   },
+   {
+      "name":"Fatmanur",
+      "lastName":"Kaya",
+      "vergiNO":21321135553253
+   },
+   {
+      "name":"Pelin",
+      "lastName":"Akyüz",
+      "vergiNO":32513232351155
+   },
+   {
+      "name":"Burhan",
+      "lastName":"Kaya",
+      "vergiNO":35211615321351
+   },
+   {
+      "name":"Kazım",
+      "lastName":"Kara",
+      "vergiNO":55161611321515
+   },
+   {
+      "name":"Zeynep",
+      "lastName":"Uçak",
+      "vergiNO":51355325321321
+   },
+   {
+      "name":"Emre",
+      "lastName":"Karataş",
+      "vergiNO":13253232351155
+   }
+]

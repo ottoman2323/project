@@ -1,0 +1,18 @@
+:root{
+   font-size: 16px;
+}
+*{
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+}
+html{
+   scroll-behavior: smooth;
+}
+a, a::before, a::after, a:link, a:active{
+   text-decoration: none;
+   color: rgb(109, 81, 212);
+}
+ul{
+   list-style: none;
+}
