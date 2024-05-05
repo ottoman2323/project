@@ -36,7 +36,7 @@ searchElement.addEventListener('keyup', (event)=>{
    const keyword = event.target.value.trim().toLowerCase();
 
    const newData = data.filter((item)=>{
-      return item.vergiNO.toString().toLowerCase().startsWith(keyword)
+      return item.taxNO.toString().toLowerCase().startsWith(keyword)
    })
    dataListElement.innerHTML = ``
    newData.forEach((item)=>{

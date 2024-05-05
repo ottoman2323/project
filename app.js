@@ -9,6 +9,7 @@ const db = require(join(__dirname, 'db.js'))
 // Default settings
 dotenv.config()
 const app = express()
+db();
 
 // Variables and arrays
 const PORT = process.env.PORT || 4000;
