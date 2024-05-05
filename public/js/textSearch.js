@@ -26,7 +26,7 @@ fetch('/', {
       dataListElement.innerHTML += `<ul>
       <li>${item.name}</li>
       <li>${item.lastName}</li>
-      <li>${item.vergiNO}</li>
+      <li>${item.taxNO}</li>
       </ul>`
    })
 })
@@ -42,7 +42,7 @@ searchElement.addEventListener('keyup', (event)=>{
       dataListElement.innerHTML += `<ul>
       <li>${item.name}</li>
       <li>${item.lastName}</li>
-      <li>${item.vergiNO}</li>
+      <li>${item.taxNO}</li>
       </ul>`
    })
 })

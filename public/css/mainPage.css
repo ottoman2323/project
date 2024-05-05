@@ -19,7 +19,7 @@
 }
 .mainPage .listArea .mainPageSearchEngine{
    width: 60%;
-   height: 25px;
+   height: 35px;
    background: linear-gradient(90deg, rgba(244,227,255,0.3) 0%, rgba(255,233,233,0.3) 50%, rgba(255,245,230,0.3) 100%);
    display: flex;
    justify-content: space-between;
@@ -130,10 +130,11 @@
    height: 150px;
    display: flex;
    justify-content: end;
+   gap: 10px;
 }
 .mainPage .totalCount .logProcess button{
-   width: 70px;
-   height: 22px;
+   width: 100px;
+   height: 30px;
    display: flex;
    justify-content: space-around;
    align-items: center;
@@ -146,6 +147,9 @@
    font-weight: 700;
    transition: all 0.5s;
 }
+.mainPage .totalCount .logProcess button:nth-child(2){
+   background-color: #224134;
+}
 .mainPage .totalCount .logProcess button:hover{
    background-color: #ffa913;
    border: 1px solid rgb(255, 255, 255);
@@ -157,7 +161,7 @@
 }
 .mainPage .totalCount .count{
    width: 100%;
-   height: 400px;
+   height: 550px;
    border: 1px solid rgba(0, 0, 0, 0.08);
    border-radius: 10px;
    padding: 15px 5px;
