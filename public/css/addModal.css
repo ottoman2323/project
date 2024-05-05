@@ -35,18 +35,19 @@
 
 .addModal .wrapper .modalTitle a {
    color: black;
+   gap: 10px;
 }
 
 .addModal .wrapper .modalTitle a svg {
    width: 25px;
    height: 25px;
+   fill: rgb(245, 255, 157);
 }
 
 .addModal .wrapper .modalTitle a span {
-   width: 25px;
-   height: 25px;
    font-weight: bold;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   margin-left: 20px;
 }
 
 .addModal .wrapper .modalTitle button {
@@ -63,6 +64,7 @@
    transition: all 0.4s;
    background-color: #FA7070;
    color: white;
+   font-weight: bold;
 }
 
 .addModal .wrapper .modalTitle button:hover {

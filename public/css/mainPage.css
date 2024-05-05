@@ -128,12 +128,12 @@
    width: 100%;
    height: 150px;
    display: flex;
-   justify-content: space-around;
+   justify-content: flex-end;
+   align-items: flex-start;
    gap: 10px;
 }
 .mainPage .totalCount .logProcess button{
-   width: 90px;
-   height: 30px;
+   padding: 7px;
    display: flex;
    justify-content: space-around;
    align-items: center;
