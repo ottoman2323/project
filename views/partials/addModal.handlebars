@@ -21,37 +21,37 @@
          <div class="formData">
             <div class="side">
                <div class="area">
-                  <input  type="text"  name="name">
+                  <input type="text" value="fdsafdas" name="name">
                   <span>Όνομα</span>
                </div>
 
                <div class="area">
-                  <input type="text"  name="lastName">
+                  <input type="text" value="fdsafdas" name="lastName">
                   <span>Επώνυμο</span>
                </div>
 
                <div class="area">
-                  <input type="email" name="email">
+                  <input type="email" value="fdsafdas@gmail.com" name="email">
                   <span>E-mail</span>
                </div>
 
                <div class="area">
-                  <input type="text"  name="phone">
+                  <input type="text" value="fdsafdas" name="phone">
                   <span>Τηλέφωνο</span>
                </div>
 
                <div class="area">
-                  <input type="text"  name="taxNO">
+                  <input type="text" value="fdsafdas" name="taxNO">
                   <span>Α.Φ.Μ</span>
                </div>
 
                <div class="area">
-                  <input type="text"  name="idNO">
+                  <input type="text" value="fdsafdas" name="idNO">
                   <span>Α.Δ.Τ</span>
                </div>
 
                <div class="area">
-                  <input type="text"  name="IBAN">
+                  <input type="text" value="fdsafdas" name="IBAN">
                   <span>IBAN</span>
                </div>
             </div>
@@ -59,27 +59,27 @@
 
             <div class="side">
                <div class="area">
-                  <input type="text"  name="fatherName">
+                  <input type="text" value="fdsafdas" name="fatherName">
                   <span>Όνομα Πατέρα</span>
                </div>
 
                <div class="area">
-                  <input type="text"  name="motherName">
+                  <input type="text" value="fdsafdas" name="motherName">
                   <span>Όνομα Μητέρας</span>
                </div>
 
                <div class="area">
-                  <input type="date"  name="birthDay">
+                  <input type="date" value="fdsafdas" name="birthDay">
                   <span>Ημερομηνία Γέννησης</span>
                </div>
 
                <div class="area">
-                  <input type="text"  name="address">
+                  <input type="text" value="fdsafdas" name="address">
                   <span>Διεύθυνση</span>
                </div>
 
                <div class="area">
-                  <select  name="county">
+                  <select name="county">
                      <option value="merkez" disabled selected>Επιλέξτε Νομό</option>
                      <option value="rodopis">ΡΟΔΟΠΗ</option>
                      <option value="xanthis">ΞΑΝΘΗ</option>
@@ -88,7 +88,7 @@
                </div>
 
                <div class="area">
-                  <select  name="city">
+                  <select name="city">
                      <option value="" disabled selected>Επιλέξτε Πόλη</option>
                      <option value="komotini">ΚΟΜΟΤΗΝΗ</option>
                      <option value="xanthi">ΞΑΝΘΗ</option>
@@ -98,10 +98,15 @@
                </div>
 
                <div class="area">
-                  <input type="text"  name="postCode">
+                  <input type="text" value="fdsafdas" name="postCode">
                   <span>Τ.Κ</span>
                </div>
             </div>
+         </div>
+
+
+         <div class="message">
+            <p id="addMessage"></p>
          </div>
 
 
@@ -119,18 +124,26 @@
 
 <script>
    const addForm = document.getElementById('addForm')
+   const addMessage = document.getElementById('addMessage')
 
-   addForm.addEventListener('submit', (event)=>{
+   addForm.addEventListener('submit', (event) => {
       event.preventDefault()
-      
+
       const formData = new FormData(event.target)
 
       fetch('/add', {
-         method:'post',
-         body:formData
-      }).then(response=>response.json())
-      .then((res)=>{
-         console.log(res)
-      })
+         method: 'post',
+         body: formData
+      }).then(response => response.json())
+         .then((res) => {
+            if (res.state) {
+               addMessage.style.color = 'green'
+               addMessage.innerHTML = res.message
+            }
+            else {
+               addMessage.style.color = 'red'
+               addMessage.innerHTML = res.message
+            }
+         })
    })
 </script>
