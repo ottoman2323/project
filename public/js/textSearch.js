@@ -21,6 +21,7 @@ fetch('/', {
    method:'post'
 }).then(response=>response.json())
 .then((res)=>{
+   console.log(res)
    data = res
    res.forEach((item)=>{
       dataListElement.innerHTML += `<ul>

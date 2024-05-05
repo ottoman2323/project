@@ -19,6 +19,7 @@ router.get('/', async(req,res)=>{
 router.post('/', async(req, res)=>{
    try {
       const findData = await Users.find().exec()
+      console.log(findData)
       res.json(findData)
    } catch (error) {
       console.log(error)
