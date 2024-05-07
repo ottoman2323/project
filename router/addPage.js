@@ -32,12 +32,6 @@ router.post('/', async(req, res) => {
          return sendMessage(res, false, 'Vergi numarası hatalı')
       }
 
-      const taxControl = await Users.find({taxNO}).exec();
-
-      if(taxControl !== 0){
-         return sendMessage(res, true, 'Vergi numarası zaten kayıtlıdır!')
-      }
-
       const users = new Users({
          ...req.body
       })
