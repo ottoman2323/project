@@ -21,7 +21,6 @@ router.post('/', async(req, res)=>{
    try {
       let findData = await Users.find().exec()
       findData = findData.reverse()
-      console.log(findData)
       res.json(findData)
    } catch (error) {
       console.log(error)

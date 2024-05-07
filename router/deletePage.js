@@ -23,24 +23,29 @@ router.get('/:taxNO', async(req, res) => {
          return sendMessage(res, false, 'Data not sending!')
       }
 
-      const userControl = await Users.find({taxNO}).exec();
+      const userControl = await Users.find({taxNO:taxNO}).exec();
+
 
       if(userControl.length === 0){
          return sendMessage(res, false, 'Person not found!')
       }
 
       Users.deleteOne({taxNO}).then(()=>{
-         return sendMessage(res, true, 'The contact was successfully deleted')
-      }).catch((err)=>{
-         console.log(err)
-         return sendMessage(res, false, 'Something went wrong')
+         return sendMessage(res, true, 'Deleted!')
+      }).catch((error)=>{
+         console.log(error)
+         return sendMessage(res, false, 'Error!')
       })
+      
       
    } catch (error) {
       console.log(error);
       sendMessage(res, false, 'hata!')
    }
 })
+
+
+// 094266754
 
 
 module.exports = router

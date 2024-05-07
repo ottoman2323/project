@@ -15,10 +15,14 @@
    gap: 20px;
 }
 .single .buttons .edit{
-   font-size: 0.8rem;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 0.7rem;
+   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    width: 60%;
+   height: 100%;
    text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .single .buttons .group{
    width: 100px;

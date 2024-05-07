@@ -5,7 +5,7 @@
       {{#if user}}
       <div class="edit" id="edit">
       </div>
-      
+
       <div class="group">
          <button class="openeditButtons" title="Edit">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -101,9 +101,12 @@
 
 
 {{#if user}}
-<script>
+<script type="module">
+   import {clearMessage} from '/js/allFunctions.js'
    const deleteButton = document.getElementById('deleteButton');
    const edit = document.querySelector('#edit')
+
+
 
    deleteButton.addEventListener('click', () => {
       let id = window.location.href.split('/')
@@ -111,7 +114,19 @@
       fetch(`/delete/${id}`, { method: 'get' })
          .then(response => response.json())
          .then((res) => {
-            console.log(res)
+            edit.innerHTML = ''
+            if (res.state) {
+               edit.style.color = '#75A47F'
+               edit.innerHTML = res.message
+               setTimeout(()=>{
+                  window.location.href = '/'
+               }, 1000)
+            }
+            else {
+               edit.style.color = '#FA7070'
+               edit.innerHTML = res.message
+               clearMessage(edit, 5);
+            }
          })
    })
 
