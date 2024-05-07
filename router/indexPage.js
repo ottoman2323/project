@@ -3,6 +3,7 @@ const router = express.Router();
 const {join} = require('path')
 const Users = require(join(__dirname, '..', 'schema' ,'users.js'))
 
+
 const data = require(join(__dirname, '..', 'fakeDB.json'))
 
 
@@ -18,7 +19,8 @@ router.get('/', async(req,res)=>{
 
 router.post('/', async(req, res)=>{
    try {
-      const findData = await Users.find().exec()
+      let findData = await Users.find().exec()
+      findData = findData.reverse()
       res.json(findData)
    } catch (error) {
       console.log(error)

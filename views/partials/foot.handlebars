@@ -1,5 +1,10 @@
-<script src="/js/textSearch.js"></script>
-<script src="/js/login.js"></script>
-<script src="/js/addModal.js"></script>
+<script src="/js/textSearch.js" type="module"></script>
+{{#unless user}}
+<script src="/js/login.js" type="module"></script>
+{{/unless}}
+
+{{#if user}}
+<script src="/js/addModal.js" type="module"></script>
+{{/if}}
 </body>
 </html>

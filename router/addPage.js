@@ -27,6 +27,9 @@ function validateAFM(afm) {
 
 router.post('/', (req, res) => {
    try {
+      if(!res.locals.user){
+         return sendMessage(res, false, 'Yetkisiz Erişim!')
+      }
       if (!req.body) {
          return sendMessage(res, false, 'Veri iletilemedi!')
       }

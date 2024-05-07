@@ -122,7 +122,8 @@
 
 
 
-<script>
+<script type="module">
+   import {clearMessage, timingReload} from '/js/allFunctions.js'
    const addForm = document.getElementById('addForm')
    const addMessage = document.getElementById('addMessage')
 
@@ -130,6 +131,7 @@
       event.preventDefault()
 
       const formData = new FormData(event.target)
+      addMessage.innerHTML = ''
 
       fetch('/add', {
          method: 'post',
@@ -137,12 +139,14 @@
       }).then(response => response.json())
          .then((res) => {
             if (res.state) {
-               addMessage.style.color = 'green'
+               addMessage.style.color = '#8DECB4'
                addMessage.innerHTML = res.message
+               timingReload(3);
             }
             else {
-               addMessage.style.color = 'red'
+               addMessage.style.color = '#FA7070'
                addMessage.innerHTML = res.message
+               clearMessage(addMessage, 7);
             }
          })
    })

@@ -1,34 +1,63 @@
 // İncluding packages
 const express = require('express')
 const dotenv = require('dotenv')
-const {engine} = require('express-handlebars')
+const {create} = require('express-handlebars')
 const {join} = require('path')
 const fileUpload = require('express-fileupload')
 const db = require(join(__dirname, 'db.js'))
+const expressSession = require('express-session')
+
 
 // Default settings
 dotenv.config()
 const app = express()
 db();
+const half = 1000 * 60 * 30
+
+// All Helpers 
+const {controlText} = require(join(__dirname, 'helpers', 'control.js'))
+const hbs = create({helpers:{
+   controlText
+}})
+
+
 
 // Variables and arrays
 const PORT = process.env.PORT || 4000;
 let API_URL = process.env.API_URL || "http://127.0.0.1:5000";
-
+const SECRET_VALUE = process.env.SECRET_VALUE || "smoke";
 
 
 // Template engine
-app.engine('handlebars', engine())
+app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars');
 app.set('views', join(__dirname, 'views'))
 
 
 
 // middleware setting
+app.use(expressSession({
+   secret:SECRET_VALUE,
+   resave:false,
+   saveUninitialized:true,
+   cookie:{path:'/', maxAge:half, httpOnly:true}
+}))
 app.use(express.json())
 app.use(fileUpload())
 app.use(express.urlencoded({extended:false}))
 app.use(express.static(join(__dirname, 'public')))
+
+app.use((req, res, next)=>{
+   const {userID} = req.session 
+
+   if(userID){
+      res.locals.user = true
+   }
+   else{
+      res.locals.user = false
+   }
+   next()
+})
 
 
 // router including
