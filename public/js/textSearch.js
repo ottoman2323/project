@@ -6,7 +6,7 @@ import { data } from '/js/getData.js'
 const searchParent = document.querySelector('#searchParent')
 const searchElement = document.querySelector('#searchElement')
 const dataListElement = document.querySelector('#dataListElement')
-let searchControl = true
+
 
 searchElement.addEventListener('focus', () => {
    searchParent.style.width = '70%';
@@ -23,7 +23,7 @@ searchElement.addEventListener('blur', () => {
 
 data.forEach((item) => {
    dataListElement.innerHTML += `<ul>
-   <li>${item.name}</li>
+   <li><a href='single/${item.taxNO}'>${item.name}</a></li>
    <li>${item.lastName}</li>
    <li>${item.taxNO}</li>
    </ul>`
@@ -39,7 +39,7 @@ searchElement.addEventListener('keyup', (event) => {
    dataListElement.innerHTML = ``
    newData.forEach((item) => {
       dataListElement.innerHTML += `<ul>
-      <li>${item.name}</li>
+      <li><a href='single/${item.taxNO}'>${item.name}</a></li>
       <li>${item.lastName}</li>
       <li>${item.taxNO}</li>
       </ul>`

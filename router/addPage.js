@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { join } = require('path')
 const Users = require(join(__dirname, '..', 'schema', 'users.js'))
+const {validateAFM} = require(join(__dirname, '..', 'help', 'control.js'))
 
 // Helper method
 const sendMessage = (res, state, message) => {
@@ -9,19 +10,6 @@ const sendMessage = (res, state, message) => {
       state,
       message
    })
-}
-
-function validateAFM(afm) {
-   if (!afm.match(/^\d{9}$/) || afm == '000000000')
-      return false;
-
-   var m = 1, sum = 0;
-   for (var i = 7; i >= 0; i--) {
-      m *= 2;
-      sum += afm.charAt(i) * m;
-   }
-
-   return sum % 11 % 10 == afm.charAt(8);
 }
 
 
