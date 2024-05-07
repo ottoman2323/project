@@ -13,7 +13,7 @@ const sendMessage = (res, state, message) => {
 }
 
 
-router.post('/', (req, res) => {
+router.post('/', async(req, res) => {
    try {
       if(!res.locals.user){
          return sendMessage(res, false, 'Yetkisiz Erişim!')
@@ -30,6 +30,12 @@ router.post('/', (req, res) => {
 
       if (!validateAFM(taxNO)) {
          return sendMessage(res, false, 'Vergi numarası hatalı')
+      }
+
+      const taxControl = await Users.find({taxNO}).exec();
+
+      if(taxControl !== 0){
+         return sendMessage(res, true, 'Vergi numarası zaten kayıtlıdır!')
       }
 
       const users = new Users({

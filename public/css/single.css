@@ -9,10 +9,23 @@
    max-width: 1366px;
    margin: 0px auto;
    display: flex;
-   justify-content: flex-end;
+   justify-content: space-between;
    align-items: flex-end;
    padding: 0px 20px;
    gap: 20px;
+}
+.single .buttons .edit{
+   font-size: 0.8rem;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   width: 60%;
+   text-align: center;
+}
+.single .buttons .group{
+   width: 100px;
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
 }
 .single .buttons button{
    width: 30px;
