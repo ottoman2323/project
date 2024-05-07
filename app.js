@@ -65,6 +65,7 @@ const indexPage = require(join(__dirname, 'router', 'indexPage.js'))
 const loginPage = require(join(__dirname, 'router', 'loginPage.js'))
 const addPage = require(join(__dirname, 'router', 'addPage.js'))
 const singlePage = require(join(__dirname, 'router', 'singlePage.js'))
+const logoutPage = require(join(__dirname, 'router', 'logoutPage.js'))
 
 
 // router usage
@@ -72,6 +73,7 @@ app.use('/', indexPage)
 app.use('/login', loginPage)
 app.use('/add', addPage)
 app.use('/single', singlePage)
+app.use('/logout', logoutPage)
 app.use('*', (req, res)=>{
    res.render('site/404')
 })

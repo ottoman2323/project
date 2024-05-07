@@ -17,11 +17,11 @@
 
          <div class="formData">
             <div class="area">
-               <input maxlength="20" type="password" required="required" name="password" id="passwordElement">
+               <input maxlength="20" type="password" required="required" name="password" class="passwordElement">
                <span>Password</span>
 
 
-               <section id="passwordChangeButton">
+               <section class="passwordChangeButton">
                   <svg xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                      <path
@@ -60,9 +60,7 @@
       }).then(response => response.json())
          .then((res) => {
             if (res.state) {
-               loginErrorMessage.style.color = '#8DECB4'
-               loginErrorMessage.innerHTML = res.message
-               timingReload(3);
+               timingReload(1);
             }
             else {
                loginErrorMessage.style.color = '#FA7070'
@@ -72,3 +70,5 @@
          })
    })
 </script>
+
+<script src="/js/login.js" type="module"></script>

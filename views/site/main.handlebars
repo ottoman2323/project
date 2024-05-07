@@ -1,4 +1,3 @@
-
 {{#unless user}}
 {{>login}}
 {{/unless}}
@@ -29,7 +28,7 @@
          </div>
 
          <div class="area" id="dataListElement">
-            
+
          </div>
 
 
@@ -40,7 +39,7 @@
    <section class="totalCount">
       <div class="logProcess">
 
-{{#unless user}}
+         {{#unless user}}
          <button class="loginButton openLoginButtons">
             <svg xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -48,11 +47,11 @@
                   d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
             </svg>
          </button>
-{{/unless}}
+         {{/unless}}
 
 
 
-{{#if user}}
+         {{#if user}}
          <button class="loginButton openAddButtons">
             <svg xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -60,7 +59,19 @@
                   d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
             </svg>
          </button>
-{{/if}}
+         {{/if}}
+
+
+
+         {{#if user}}
+         <button class="loginButton logoutButtons">
+            <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+               <path
+                  d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+            </svg>
+         </button>
+         {{/if}}
 
 
       </div>
@@ -92,3 +103,29 @@
    </section>
 
 </main>
+
+
+<script >
+   const logoutButtons = document.querySelectorAll('.logoutButtons')
+
+   logoutButtons.forEach((element)=>{
+      element.addEventListener('click', ()=>{
+         fetch('/logout', {method:'post'})
+         .then(response=>response.json())
+         .then((res)=>{
+            if(res.state){
+               setTimeout(()=>{
+                  window.location.reload()
+               }, 1000)
+            }
+            else{
+               console.log(res)
+            }
+         })
+      })
+   })
+
+
+</script>
+
+<script src="/js/textSearch.js" type="module"></script>
